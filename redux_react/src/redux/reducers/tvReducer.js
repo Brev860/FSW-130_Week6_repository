@@ -8,3 +8,4 @@
      return state
  }
 }
+ export default tvReducer

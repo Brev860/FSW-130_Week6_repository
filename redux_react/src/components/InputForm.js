@@ -1,34 +1,49 @@
-import React, {useState} from 'react'
+import React, {Component} from 'react'
 
 
 
-const InputForm = () =>{
+class InputForm extends Component{
 
 
-const [input, setInput] = useState('')
-console.log(input)
-
-const handleSubmit = (e) =>{
-  e.preventDefault()
-  
-
+constructor(){
+  super()
+  this.state={
+    movie:{
+      title:''
+    }
+  }
 }
 
+handleChange = e =>{
+  e.preventDefault()
+const newTitle = {...this.state.movie, title: e.target.value}
+this.setState({movie: newTitle})
+}
 
-     return(
+handleSubmit = e =>{
+  e.preventDefault()
+  
+}
 
-        <div>
-            <form>
-                <input
-                type='text'
-                name='title'
-                placeholder='Enter Title here'
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                />
-            </form>
-        </div>
-     )
+render(){
+  return(
+
+    <div>
+        <form>
+            <input
+            type='text'
+            name='title'
+            placeholder='Enter Title here'
+            value={this.state.movie.title}
+            onChange={this.handleChange}
+            />
+            <button>Enter</button>
+        </form>
+    </div>
+ )
+
+}
+     
 
 }
 
