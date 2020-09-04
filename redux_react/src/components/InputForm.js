@@ -1,35 +1,58 @@
-import React, {useState} from 'react'
+import React, {useState, Component} from 'react'
+import {connect} from 'react-redux'
+
+import * as actions from '../redux/actions/actions'
 
 
 
-const InputForm = () =>{
+class InputForm extends Component {
+
+constructor(){
+  super()
+  this.state={
+    movie:{
+      title:''
+    }
+  }
+}
 
 
-const [input, setInput] = useState('')
-console.log(input)
 
-const handleSubmit = (e) =>{
+ handleChange = e =>{
   e.preventDefault()
-  
+ const newMovie = {...this.state.movie, title: e.target.value}
+  this.setState({movie: newMovie})
+  console.log(this.state.movie.title)
+}
+ handleSubmit = e =>{
+   e.preventDefault()
+ }
+  render(){
+    return(
+
+      <div>
+          <form onSubmit={this.handleSubmit}>
+              <input
+              type='text'
+              name='title'
+              placeholder='Enter Title here'
+              value={this.state.movie.title}
+              onChange={this.handleChange}
+            
+              />
+              <button>Enter</button>
+          </form>
+      </div>
+   )
+   
+  }
+     
 
 }
-
-
-     return(
-
-        <div>
-            <form>
-                <input
-                type='text'
-                name='title'
-                placeholder='Enter Title here'
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                />
-            </form>
-        </div>
-     )
-
-}
+// const  mapStateToProps = (state, ownProps) =>{
+// //   return{
+// //     movie: this.state.movie.title
+// //   }
+// // }
 
 export default InputForm
