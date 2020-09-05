@@ -8,7 +8,7 @@ class InputForm extends Component{
 constructor(){
   super()
   this.state={
-    movie:{
+    show:{
       title:''
     }
   }
@@ -16,8 +16,8 @@ constructor(){
 
 handleChange = e =>{
   e.preventDefault()
-const newTitle = {...this.state.movie, title: e.target.value}
-this.setState({movie: newTitle})
+const newTitle = {...this.state.show, title: e.target.value}
+this.setState({show: newTitle})
 }
 
 handleSubmit = e =>{
@@ -34,7 +34,7 @@ render(){
             type='text'
             name='title'
             placeholder='Enter Title here'
-            value={this.state.movie.title}
+            value={this.state.show.title}
             onChange={this.handleChange}
             />
             <button>Enter</button>
