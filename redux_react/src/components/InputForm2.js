@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 
 
-class InputForm extends Component{
+class InputForm2 extends Component{
 
 
 constructor(){
@@ -29,7 +29,8 @@ render(){
   return(
 
     <div>
-        <form>
+     
+        <form className='input'>
             <input
             type='text'
             name='title'
@@ -40,7 +41,7 @@ render(){
             <button>Enter</button>
         </form>
 
-        <h2>Output Goes Here</h2>
+        <h2>Show Output Goes Here</h2>
     </div>
  )
 
@@ -48,5 +49,4 @@ render(){
      
 
 }
-
-export default InputForm
+export default InputForm2

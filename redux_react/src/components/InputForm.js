@@ -29,7 +29,9 @@ render(){
   return(
 
     <div>
-        <form>
+
+    
+        <form className='input'>
             <input
             type='text'
             name='title'
@@ -40,7 +42,7 @@ render(){
             <button>Enter</button>
         </form>
 
-        <h2>Output Goes Here</h2>
+        <h2>Movie Output Goes Here</h2>
     </div>
  )
 
