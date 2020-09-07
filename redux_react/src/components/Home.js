@@ -6,11 +6,9 @@ const Home = ()=>{
   return(
 <div className='home'>
           
-    <h1>Movie and Tv Show App</h1>
+    <h1>Binge Worthy TV and Movies</h1>
 
-      <video width="750" height="500" controls >
-      <source src="../video/Random_Good_Movies_Slideshow.mp4" type="video/mp4"/>
-     </video>
+      <img src='' alt=''/>
     
 </div>
   )

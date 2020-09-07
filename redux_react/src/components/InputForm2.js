@@ -1,18 +1,16 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import * as actions from '../redux/actions/actions'
 
 
 
 class InputForm2 extends Component{
 
-
-constructor(){
-  super()
-  this.state={
+state={
     show:{
       title:''
     }
   }
-}
 
 handleChange = e =>{
   e.preventDefault()
@@ -22,7 +20,8 @@ this.setState({show: newTitle})
 
 handleSubmit = e =>{
   e.preventDefault()
-  
+  console.log(this.state.show)
+  this.props.dispatch(actions.addShow(this.state.show))
 }
 
 render(){
@@ -40,8 +39,12 @@ render(){
             />
             <button>Enter</button>
         </form>
+        <h2>Binge Worthy Shows</h2>
+        {this.props.show.map(show =>(
+            <h2 key={show.title}>{show.title}</h2>
+        ))}
 
-        <h2>Show Output Goes Here</h2>
+       
     </div>
  )
 
@@ -49,4 +52,12 @@ render(){
      
 
 }
-export default InputForm2
+
+const mapStateToProps = (state)=>{
+  console.log(state.tv)
+  return{  
+      show: state.tv
+  }
+  
+}
+export default connect(mapStateToProps)(InputForm2)

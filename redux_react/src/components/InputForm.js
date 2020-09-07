@@ -1,18 +1,17 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import * as actions from '../redux/actions/actions'
 
 
 
 class InputForm extends Component{
 
-
-constructor(){
-  super()
-  this.state={
+state={
     movie:{
       title:''
     }
   }
-}
+
 
 handleChange = e =>{
   e.preventDefault()
@@ -22,16 +21,15 @@ this.setState({movie: newTitle})
 
 handleSubmit = e =>{
   e.preventDefault()
-  
+  console.log(this.state.movie)
+  this.props.dispatch(actions.addMovie(this.state.movie))
 }
 
 render(){
   return(
 
     <div>
-
-    
-        <form className='input'>
+        <form className='input' onSubmit={this.handleSubmit}>
             <input
             type='text'
             name='title'
@@ -41,14 +39,31 @@ render(){
             />
             <button>Enter</button>
         </form>
-
-        <h2>Movie Output Goes Here</h2>
+        <h2>Binge Worthy Movies</h2>
+        {this.props.movie.map(movie =>(
+            <h2 key={movie.title}>{movie.title}</h2>
+        ))}
+        
     </div>
  )
 
 }
-     
+}
+ 
+const mapStateToProps = (state)=>{
+  console.log(state.movie)
+  return{
+      movie: state.movie,
 
+  }
+  
 }
 
-export default InputForm
+
+// const mapDispatchToProps ={
+//     add: addUser,
+//     delete: removeUser
+// }
+export default connect(mapStateToProps, )(InputForm)
+
+
