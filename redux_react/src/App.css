@@ -18,17 +18,12 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar{
+  position: fixed;
+  top: 0;
 }
 
-
-ul {
+.navul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -36,11 +31,12 @@ ul {
   background-color: #333;
 }
 
-li {
+
+.link {
   float: left;
 }
 
-li  {
+.link  {
   display: block;
   color: white;
   text-align: center;
@@ -49,7 +45,18 @@ li  {
 }
 
 
-li :hover {
+.link :hover {
   background-color: #111;
 }
 
+
+
+
+.list .list-item {
+  background: #cce5ff;
+  margin: 5px;
+}
+.list-item{
+  color: black;
+  font: bold;
+}

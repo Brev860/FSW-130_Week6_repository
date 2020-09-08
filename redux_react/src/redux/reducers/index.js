@@ -5,7 +5,7 @@ import tvReducer from './tvReducer'
 
 const reducers = combineReducers({
     movie: movieReducer,
-    tv: tvReducer
+    show: tvReducer
 })
 
 export default reducers

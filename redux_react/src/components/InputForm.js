@@ -41,7 +41,10 @@ render(){
         </form>
         <h2>Binge Worthy Movies</h2>
         {this.props.movie.map(movie =>(
-            <h2 key={movie.title}>{movie.title}</h2>
+          <ul className='list'>
+             <li className='list-item' key={movie.title}>{movie.title}</li>
+          </ul>
+            
         ))}
         
     </div>

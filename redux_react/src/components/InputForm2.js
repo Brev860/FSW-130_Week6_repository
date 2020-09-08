@@ -29,7 +29,7 @@ render(){
 
     <div>
      
-        <form className='input'>
+        <form className='input' onSubmit={this.handleSubmit}>
             <input
             type='text'
             name='title'
@@ -41,7 +41,9 @@ render(){
         </form>
         <h2>Binge Worthy Shows</h2>
         {this.props.show.map(show =>(
-            <h2 key={show.title}>{show.title}</h2>
+           <ul className='list'>
+           <li className='list-item' key={show.title}>{show.title}</li>
+        </ul>
         ))}
 
        
@@ -54,9 +56,9 @@ render(){
 }
 
 const mapStateToProps = (state)=>{
-  console.log(state.tv)
+  console.log(state.show)
   return{  
-      show: state.tv
+      show: state.show
   }
   
 }
